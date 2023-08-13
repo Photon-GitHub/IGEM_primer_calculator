@@ -50,6 +50,25 @@ def calculate_overlap(plasmid: Seq, target_sequence: Seq, min_stem_length: int, 
 
 
 def random_seq(ats: int, cgs: int) -> Seq:
+    """
+    Generates a random DNA sequence based on the provided number of AT and CG pairs.
+
+    Parameters:
+    - ats (int): The number of adenine (A) and thymine (T) pairs desired in the sequence.
+    - cgs (int): The number of cytosine (C) and guanine (G) pairs desired in the sequence.
+
+    Returns:
+    - Seq: A random DNA sequence as a Seq object containing the specified number of AT and CG pairs.
+
+    Raises:
+    - ValueError: If either ats or cgs is less than or equal to 0.
+
+    Description:
+    The function will iteratively select random nucleotides based on the availability of AT and CG pairs.
+    For example, if only AT pairs are available, it will select from 'A' or 'T'.
+    If both AT and CG pairs are available, it will select from any of the four nucleotides.
+    The total amount of returned pairs is ats + cgs.
+    """
     if ats <= 0 or cgs <= 0:
         raise ValueError("ats and cgs must be greater than 0")
 
