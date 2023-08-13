@@ -6,13 +6,15 @@ from Bio import Seq, SeqUtils
 
 def is_hairpin(seq: Seq, min_stem_length: int = 2, min_loop_length: int = 3):
     """
-    Checks if the given sequence is a hairpin.
+    Determine if a given sequence forms a hairpin structure.
 
-    :param seq: The genetic sequence
-    :param min_stem_length: The minimum number of base pairs in the stem
-    :param min_loop_length: The minimum number of base pairs in the loop
+    Parameters:
+    - seq (Seq): Genetic sequence to check for hairpin structure.
+    - min_stem_length (int): Minimum number of base pairs required in the stem.
+    - min_loop_length (int): Minimum number of base pairs required in the loop.
 
-    :return: True if the sequence is a hairpin, False otherwise
+    Returns:
+    - bool: True if sequence forms a hairpin, False otherwise.
     """
     # Check if the sequence is long enough to form a hairpin
     if len(seq) < 2 * min_stem_length + min_loop_length:
