@@ -133,6 +133,14 @@ def calculate_primers(plasmid: Seq, target_sequence: Seq, primer_length: int, cg
         print("CG ratio must be between 0 and 1")
         return None
 
+    if min_stem_length < 1:
+        print("Minimum stem length must be at least 1")
+        return None
+
+    if min_loop_length < 1:
+        print("Minimum loop length must be at least 1")
+        return None
+
     target_cropped_len = min(len(target_sequence), 30)
 
     fw_rnd, fw_overlap, fw_primer = calculate_primer(plasmid, target_sequence, primer_length, cg_ratio, min_stem_length, min_loop_length)
